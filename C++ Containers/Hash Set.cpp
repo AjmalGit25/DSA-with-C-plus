@@ -118,4 +118,25 @@ unordered_set == Hash Set
 "set" = sorted
 unordered_set = Data is not sorted
 
+
+-------------------------------------------------------------------------------------
+All four (set, map, unordered_set, unordered_map) are provided by the C++ Standard Template Library (STL).
+-------------------------------------------------------------------------------------
+
+They fall into two categories:
+
+1. Ordered Containers (Tree-based):
+	i) Set
+	ii) Map
+	
+	-> Internally use a balanced tree (Red-Black Tree)
+	-> Elements are always sorted
+
+2. Unordered Containers (Hash-based):
+	i) unordered_set
+	ii) unordered_map
+	
+	-> Internally use a hash table
+	-> No sorting, but faster access on average
+
 */	

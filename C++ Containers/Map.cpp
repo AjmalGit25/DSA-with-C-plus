@@ -94,11 +94,31 @@ int main () {
 /*
 
 Elements in a map are:
-	? Accessible by keys (not index), and each key is unique.
-	? Automatically sorted in ascending order by their keys.
+	-> Accessible by keys (not index), and each key is unique.
+	-> Automatically sorted in ascending order by their keys.
 
 
 'map' in C++ is an ordered map.		Used for sorted, ordered maps.
 'unordered_map' in C++ is a hash map (or hashmap). Used for faster, hash-based maps.
+
+-------------------------------------------------------------------------------------
+All four (set, map, unordered_set, unordered_map) are provided by the C++ Standard Template Library (STL).
+-------------------------------------------------------------------------------------
+
+They fall into two categories:
+
+1. Ordered Containers (Tree-based):
+	i) Set
+	ii) Map
+	
+	-> Internally use a balanced tree (Red-Black Tree)
+	-> Elements are always sorted
+
+2. Unordered Containers (Hash-based):
+	i) unordered_set
+	ii) unordered_map
+	
+	-> Internally use a hash table
+	-> No sorting, but faster access on average
 
 */
