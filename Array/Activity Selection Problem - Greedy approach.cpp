@@ -10,7 +10,14 @@ struct train {
 };
 
 int main () {
-    train trains[] = { {6, 11}, {5, 7}, {1, 4}, {8, 12}, {3, 6}, {8, 9} };
+    train trains[] = { 
+						{6, 11}, 
+						{5, 7}, 
+						{1, 4}, 
+						{8, 12}, 
+						{3, 6}, 
+						{8, 9} 
+					};
     
     int n = sizeof (trains) / sizeof (trains[0]);
     
@@ -35,7 +42,6 @@ int main () {
                  << ", end = " << trains[next].end << endl;
         }
     }
-	
 
 	return 0;
 }
@@ -43,7 +49,7 @@ int main () {
 /*
 
 Activity Selection Problem using Greedy approach:
-	1. Sort : Sort by ending time
+	1. Sort : Sort by END time
 	2. Pick first activity
 	3. Select non-overlapping ones
 
@@ -53,10 +59,27 @@ Time Complexity: O(n log n)
 	Loop → O(n)
 
 
-Activity Selection Problem's Goal:
-	Select maximum number of non-overlapping activities.		"Don’t overlap"
+Goal:
+	-> Select maximum number of non-overlapping activities.		"Don’t overlap"
+	-> We want the maximum number of activities.
+
+Why sort by END time?
+	-> Finish the current activity as early as possible so more activities can fit later
+	-> So we choose the activity with the smallest ending time first.
 	
 Job Scheduling Problem's Goal:
 	Maximize profit, not number of jobs.						"Fit jobs before deadlines to earn max profit"
+
+------------------------------------------------
+
+Need earliest finishing? → sort by END
+Need overlap grouping? → sort by START
+
+-------------------------------------------------
+Overlap logic:
+
+start1 <= end2
+AND
+start2 <= end1
 
 */
