@@ -36,7 +36,7 @@ int main () {
 	
 	cout << "\n";
 
-	// Better (Modern C++ - Range Based Loop)
+	// Better (Modern C++ Range Based Loop)
 	for (auto &row : matrix) {
 		for (auto &val : row) {
 			cout << val << " ";

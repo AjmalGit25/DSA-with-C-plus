@@ -4,7 +4,7 @@ using namespace std;
 
 
 int main () {
-	/* Syntax: map<key, value> mapName; ----- */
+	/* Syntax: map<key, value> mapName; ------------------ */
 
 	// Create a map strings as keys and integers as values (only declaration)
 	map<string, int> person;
