@@ -56,10 +56,14 @@ int main () {
 
 Remove Covered Intervals:
 
-if same START
-    sort by END descending
-else
-    sort by START ascending
+Sort:
+
+	if same START
+	    sort by END descending
+	else
+	    sort by START ascending
+
+-------------------------------------------------------
 
 Final sort result:
 {
