@@ -7,7 +7,7 @@ vector<vector<int>> merge (vector<vector<int>>& intervals) {
     if (intervals.empty()) 
         return {};
     
-    // 1. sort (END)
+    // 1. sort (END ascending)
     sort (intervals.begin(), intervals.end(), [](vector<int>& a, vector<int>& b) {
         return a[1] < b[1];
     });

@@ -8,13 +8,13 @@ vector<vector<int>> removeCoveredIntervals(vector<vector<int>>& intervals) {
 	if (intervals.empty())
 		return {};
 
-	// 1. Sort by (START ascending, END descending)
+	// 1. Sort (START ascending, if samse START? END descending)
 	sort(intervals.begin(), intervals.end(),
 	[](vector<int>& a, vector<int>& b) {
 		if (a[0] == b[0])
 			return a[1] > b[1];
-
-		return a[0] < b[0];
+		else
+			return a[0] < b[0];
 	}
 	    );
 
@@ -57,11 +57,9 @@ int main () {
 Remove Covered Intervals:
 
 Sort:
-
-	if same START
-	    sort by END descending
-	else
-	    sort by START ascending
+	START ascending
+		if same START
+	END descending
 
 -------------------------------------------------------
 
