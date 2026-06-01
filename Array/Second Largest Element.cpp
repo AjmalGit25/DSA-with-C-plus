@@ -1,41 +1,70 @@
 #include <iostream>
 #include <climits>
 using namespace std;
-//Second Largest Element
 
-int findSecondLargest(int* arr, int n){
-    if(n<1){
-        return INT_MIN;
-    }
-    int first = INT_MIN, second = INT_MIN;
-    for(int i=0; i<n; i++){
-        if(arr[i]>first){
-            second = first;
-            first = arr[i];
-        }else if(arr[i] > second && arr[i] != first){
-            second = arr[i];
+// Naive Approach using Sorting
+int secondLargest (vector<int>& nums) {
+    int n = nums.size();
+    
+    // sort Ascending
+    sort (nums.begin(), nums.end());						// O(n*log(n))
+    
+    for (int i = n - 2; i >= 0; i--) {
+        if (nums[i] != nums[n-1]) {
+            return nums[i];
         }
     }
-    return second;
+    
+    return -1;
 }
-int main(){
+
+// Two Pass Search
+int secondLargest (vector<int>& nums) {
+    int n = nums.size();
     
-    int n;
-    cout << "Enter size of the array: ";
-    cin >> n;
+    int largest = -1;
+    int secondLargest = -1;
     
-    int arr[n];
-    
-    cout <<"Enter elements of array:\n";
-    for(int i=0; i<n; i++){
-        cin >> arr[i];
+    // 1st Pass	-> find largest element
+    for (int i = 0; i < n; i++) {
+        largest = max (largest, nums[i]);
     }
-    int res = findSecondLargest(arr, n);
-    if(res == INT_MIN){
-        cout<<"Array must have at least two elements!";
-    }else{
-        cout <<"Second Largest Element: "<<res;
+    
+    // 2nd Pass -> find secondLargest element
+    for (int i = 0; i < n; i++) {
+        if (nums[i] > secondLargest && nums[i] != largest) 
+            secondLargest = nums[i];
     }
+    
+    return secondLargest;
+}
+
+// Expected Approach -> One Pass Search
+int secondLargest (vector<int>& nums) {
+    int n = nums.size();
+    
+    int largest = -1;
+    int secondLargest = -1;
+    
+    for (int i = 0; i < n; i++) {
+        if (nums[i] > largest) {
+            secondLargest = largest;
+            largest = nums[i];
+        }
+        else if (nums[i] < largest && nums[i] > secondLargest) {
+            secondLargest = nums[i];
+        }
+    }
+    
+    return secondLargest;
+}
+
+int main () {
+    vector<int> nums = {12, 35, 1, 10, 34, 1};
+    
+    int result = secondLargest (nums);
+    
+    cout << "Second Largest element = " << result;
     
     return 0;
 }
