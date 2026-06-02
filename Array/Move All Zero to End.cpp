@@ -23,21 +23,31 @@ vector<int> moveZeroes (vector<int>& nums) {
 // Better Approach - Two Traversals-O(n) Time and O(1) space
 void moveZeroes (vector<int>& nums) {
     int n = nums.size();
-    
    
     int count = 0;
     
     for (int i = 0; i < n; i++) {
         if (nums[i] != 0) {
-            nums[count] = nums[i];
-            count++;
+            nums[count++] = nums[i];
         }
     }
     
     // fill remaining elements with 0
     while (count < n) {
-        nums[count] = 0;
-        count++;
+        nums[count++] = 0;
+    }
+}
+
+// Expected Approach - One Traversal - O(n) Time 
+void moveZeroes (vector<int>& nums) {
+    int n = nums.size();
+   
+    int count = 0;
+    
+    for (int i = 0; i < n; i++) {
+        if (nums[i] != 0) {
+            swap (nums[count++], nums[i]);
+        }
     }
 }
 
