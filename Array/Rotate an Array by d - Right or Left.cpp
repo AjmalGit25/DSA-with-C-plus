@@ -38,7 +38,7 @@ void rotateArr (vector<int>& nums, int d) {
 }
 
 // [Better Approach] Using Temporary Array - O(n) Time and O(n) Space
-void rotateArr (vector<int>& nums, int d) {
+vector<int> leftRotate (vector<int>& nums, int d) {
     int n = nums.size();
     
     // Handle case when d > n
@@ -47,41 +47,33 @@ void rotateArr (vector<int>& nums, int d) {
     vector<int> temp(n);
     
     // Copy last n - d elements from d
-    for (int i = 0; i < n - d; i++) {
+    for (int i = 0; i < n - d; i++) 
         temp[i] = nums[d + i];
-    }
     
-    // Copy the first d elements to the back of temp
-    for (int i = 0; i < d; i++) {
+    // Copy first d elements to the back of temp
+    for (int i = 0; i < d; i++) 
         temp[n - d + i] = nums[i];
-    }
     
-    // Copy elements from temp to nums
-    for (int i = 0; i < n; i++) {
-        nums[i] = temp[i];
-    }
+    return temp;
 }
 
-// Right rotate
-void rotateArr (vector<int>& nums, int d) {
+vector<int> rightRotate (vector<int>& nums, int d) {
     int n = nums.size();
     
-    // when d > n
+    // Handle case when d > n
     d %= n;
     
     vector<int> temp(n);
     
-    // copy last d elements
+    // Copy last d elements from n - d
     for (int i = 0; i < d; i++) 
         temp[i] = nums[n - d + i];
     
-    // copy first n - d elements
-    for (int i = 0; i < n - d; i++)
+    // Copy first n - d elements to the back of temp
+    for (int i = 0; i < n - d; i++) 
         temp[d + i] = nums[i];
     
-    for (int i = 0; i < n; i++) {
-        nums[i] = temp[i];
-    }
+    return temp;
 }
 
 int main () {
