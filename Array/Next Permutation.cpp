@@ -7,6 +7,7 @@ void nextPermutation (vector<int>& nums) {
         i--;
     
     if (i >= 0) {
+    	
         int j = n - 1;
         
         // Step 2: find next greater
