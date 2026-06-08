@@ -20,7 +20,7 @@ vector<int> moveZeroes (vector<int>& nums) {
     return temp;
 }
 
-// Better Approach - Two Traversals-O(n) Time and O(1) space
+// Better Approach - Two Traversals - O(n) Time and O(1) space
 void moveZeroes (vector<int>& nums) {
     int n = nums.size();
    

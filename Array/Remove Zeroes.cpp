@@ -3,7 +3,7 @@
 using namespace std;
 
 
-void moveZeroes(vector<int>& nums) {
+void moveZeroes (vector<int>& nums) {
     int n = nums.size ();
     int insert_idx = 0;
 
