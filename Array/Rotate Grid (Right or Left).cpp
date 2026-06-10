@@ -20,7 +20,7 @@ void rotateGrid (vector<vector<int>>& matrix) {
 	}
 }
 
-// left rotate (90 degree anti-clockwise)
+// Left rotate (90 degree anti-clockwise)
 void rotateGrid (vector<vector<int>>& matrix) {
 	int n = matrix.size();
 
