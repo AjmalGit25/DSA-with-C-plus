@@ -30,6 +30,32 @@ int maxProfit (vector<int> &prices) {
 }
 
 
+/* [Better Approach] By Trying All Possibility - O(n) Time and O(1) Space */
+int maxProfit (vector<int>& prices) {
+    int n = prices.size();
+    
+    int localMin = prices[0]; 
+    int localMax = prices[0]; 
+    
+    int profit = 0;
+  
+    int i = 0;
+    while (i < n - 1) {
+      
+        // Find localMin
+        while (i < n - 1 && prices[i] >= prices[i + 1]) { i++; }
+        localMin = prices[i];
+       
+        // Find localMax
+        while (i < n - 1 && prices[i] <= prices[i + 1]) { i++; }
+        localMax = prices[i];
+      
+        // Add current profit 
+        profit = profit + (localMax - localMin);
+    }
+  
+    return profit;
+}
 
 
 int main () {
