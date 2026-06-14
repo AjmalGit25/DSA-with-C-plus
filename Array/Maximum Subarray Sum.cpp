@@ -25,7 +25,7 @@ int maxSubarraySum (vector<int> &arr) {
 // [Expected Approach] Kadane's Algorithm - O(n) Time and O(1) Space
 int maxSubarraySum (vector<int>& arr) {
 
-    int res = arr[0];      // Best answer so far
+    int res = arr[0];      // Global maximum sum found so far
     int maxEnd = arr[0];   // Best subarray ending here
 
     for (int i = 1; i < arr.size(); i++) {
