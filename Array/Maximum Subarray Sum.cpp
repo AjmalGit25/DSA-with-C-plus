@@ -4,40 +4,42 @@ using namespace std;
 
 // [Naive Approach] Brute-Force approach - O(n^2) Time and O(1) Space
 int maxSubarraySum (vector<int> &arr) {
-    int res = arr[0];
-  
-    // Outer loop for starting point of subarray
-  	for (int i = 0; i < arr.size(); i++) {
-    	int currSum = 0;
-      
-        // Inner loop for ending point of subarray
-        for (int j = i; j < arr.size(); j++) {
-        	currSum = currSum + arr[j];
-          
-            // Update res if currSum is greater than res
-            res = max (res, currSum);
+    int n = arr.size();
+    
+    int maxSum = arr[0];
+    
+    for (int i = 0; i < n; i++) {					// Starting point of subarray
+        
+        int currSum = 0;
+        
+        for (int j = i; j < n; j++) {				// Ending point of subarray
+            currSum += arr[j];
+            
+            // Update global maximum
+            maxSum = max (maxSum, currSum);
         }
     }
     
-    return res;
+    return maxSum;
 }
 
 // [Expected Approach] Kadane's Algorithm - O(n) Time and O(1) Space
-int maxSubarraySum (vector<int>& arr) {
-
-    int res = arr[0];      // Global maximum sum found so far
-    int maxEnd = arr[0];   // Best subarray ending here
-
-    for (int i = 1; i < arr.size(); i++) {
-
-        // Extend previous subarray OR start new one
-        maxEnd = max (arr[i], maxEnd + arr[i]);
-
+int maxSubarraySum (vector<int> &arr) {
+    int n = arr.size();
+    
+    int maxSum = arr[0];                // Global maximum sum found so far
+    
+    int maxEnd = arr[0];
+    
+    for (int i = 1; i < n; i++) {
+        
+        maxEnd = max (arr[i], arr[i] + maxEnd);     // Extend previous subarray OR start new one
+        
         // Update global maximum
-        res = max (res, maxEnd);
+        maxSum = max (maxSum, maxEnd);
     }
-
-    return res;
+    
+    return maxSum;
 }
 
 int main () {
