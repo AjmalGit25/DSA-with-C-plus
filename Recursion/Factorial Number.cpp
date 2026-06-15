@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int fact(int n) {
+int fact (int n) {
 	if (n == 1 || n == 0) return 1;
 	
 	return n * fact (n - 1);
@@ -9,7 +9,7 @@ int fact(int n) {
 
 int main () { 
 	
-	cout << fact(7);
+	cout << fact (7);
 	
 	return 0;
 }
