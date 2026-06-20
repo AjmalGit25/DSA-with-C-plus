@@ -5,7 +5,9 @@ using namespace std;
 vector<vector<int>> makeTranspose (vector<vector<int>>& matrix) {
 	int rows = matrix.size();
 	int cols = matrix[0].size();
-
+	
+	
+	// 1. Take same size matrix
 	vector<vector<int>> transpose (cols, vector<int> (rows)); // Dimensions swapped
 
 	// row-by-row

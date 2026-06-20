@@ -15,9 +15,9 @@ vector<pair<int,int>> dirs = {
 {1,0}, {-1,0}, {0,1}, {0,-1}
 
 /* Used in most problems like:       											  (r-1, c)
-		Number of Islands															 ?
-		Flood Fill														(r, c-1) ? (r, c) ? (r, c+1)
-		Shortest Path (grid)														 ?															         
+		Number of Islands															 |
+		Flood Fill														(r, c-1) <- (r, c) -> (r, c+1)
+		Shortest Path (grid)														 |															         
 																	              (r+1, c)
 
 */
@@ -61,7 +61,7 @@ void dfs (int r, int c, vector<vector<char>>& grid) {
     int rows = grid.size();
     int cols = grid[0].size();
 
-    // ? Out of bounds or water
+    // Out of bounds or water
     if (r < 0 || c < 0 || r >= rows || c >= cols || grid[r][c] == '0')
         return;
 

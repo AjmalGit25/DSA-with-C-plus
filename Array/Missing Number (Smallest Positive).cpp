@@ -8,19 +8,18 @@ int missingNumber (vector<int> &arr) {
 	
 	sort (arr.begin(), arr.end());
 
-	int res = 1;
+	int curr = 1;
 
 	for (int i = 0; i < arr.size(); i++) {
-		if (arr[i] == res)
-			res++;
+		if (arr[i] == curr)
+			curr++;
 
-		else if (arr[i] > res)
+		else if (arr[i] > curr)
 			break;
 	}
 
-	return res;
+	return curr;
 }
-
 
 // Using Cycle Sort - O(n) Time and O(1) Space
 int missingNumber (vector<int> &arr) {
