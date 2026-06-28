@@ -2,42 +2,42 @@
 #include <vector>
 using namespace std;
 
-// [Naive Approach] Rotate One by One - O(n * d) Time and O(1) Space
+/* [Naive Approach] Rotate One by One - O(n * d) Time and O(1) Space -------------- */
 // Left rotate
-void rotateArr (vector<int>& nums, int d) {
+void leftRotate (vector<int>& nums, int d) {
     int n = nums.size();
     
-    // Repeat the rotation d times
+    // Continuously repeat d times
     for (int i = 0; i < d; i++) {
         
-        int first = nums[0];                // to copy first element to the last index
+        int first = nums[0];  
         
-        for (int j = 0; j < n - 1; j++) {	// shift elements to the left
+        for (int j = 0; j < n - 1; j++) 	// Shift elements to the left
             nums[j] = nums[j + 1];
-        }
         
-        nums[n - 1] = first;                // copy ...
+        
+        nums[n - 1] = first;                // Copy first element to the last index
     }
 }
 
 // Right rotate
-void rotateArr (vector<int>& nums, int d) {
+void rightRotate (vector<int>& nums, int d) {
     int n = nums.size();
-    
+     
     // Repeat the rotation d times
     for (int i = 0; i < d; i++) {
         
-        int last = nums[n - 1];                // last (right rotation)
+        int last = nums[n - 1];               // last (right rotation)
         
-        for (int j = n - 1; j >= 1; j--) {   // shift elements to the right
+        for (int j = n - 1; j >= 1; j--) {    // Shift elements to the right
             nums[j] = nums[j - 1];
         }
         
-        nums[0] = last;                // copy ...
+        nums[0] = last;                		  // Copy last element to the first index
     }
 }
 
-// [Better Approach] Using Temporary Array - O(n) Time and O(n) Space
+/* [Better Approach] Using Temporary Array - O(n) Time and O(n) Space -------------- */
 vector<int> leftRotate (vector<int>& nums, int d) {
     int n = nums.size();
     
@@ -76,6 +76,33 @@ vector<int> rightRotate (vector<int>& nums, int d) {
     return temp;
 }
 
+
+/* [Expected Approach 2] Reversal Algorithm - O(n) Time and O(1) Space -------------- */
+void leftRotate (vector<int>& arr, int d) {
+	int n = arr.size();
+
+	d %= n;										// Handle case when d > n
+
+	reverse (arr.begin(), arr.begin() + d);
+
+	reverse (arr.begin() + d, arr.end());
+
+	reverse (arr.begin(), arr.end());
+}
+
+
+void rightRotate (vector<int>& arr, int d) {
+	int n = arr.size();
+
+	d %= n;										// Handle case when d > n
+
+	reverse (arr.begin() + n - d, arr.end());
+ 
+	reverse (arr.begin(), arr.begin() + n - d);
+
+	reverse (arr.begin(), arr.end());
+}
+
 int main () {
     vector<int> nums = {1, 2, 3, 4, 5, 6};
     int d = 2;
@@ -88,3 +115,28 @@ int main () {
 
     return 0;
 }
+
+/*
+
+Rotate the array elements to the left (or right) by d positions:
+
+Left Rotate (Counter-clockwise):
+
+	1. Copy the last (n - d) elements to the front
+	2. Copy the first d elements to the back
+
+Example1: 
+	Input: {1, 2, 3, 4, 5, 6}, k = 2
+	Output: {3, 4, 5, 6, 1, 2}
+
+--------------------------------------------------------------------------------
+Right Rotate (Clockwise):
+
+	1. Copy the last d elements to the front
+	2. Copy the first (n - d) elements elements to the back
+
+Example1: 
+	Input: {1, 2, 3, 4, 5, 6}, k = 2
+	Output: {5, 6, 1, 2, 3, 4}
+
+*/

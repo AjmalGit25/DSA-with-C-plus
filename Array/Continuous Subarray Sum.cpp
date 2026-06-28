@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-/* Better Brute Force (O(n²)) Solution */
+/* Better Brute Force O(n²) Solution */
 bool checkSubarraySum (vector<int>& nums, int k) {
 	int n = nums.size();
 
@@ -37,7 +37,7 @@ bool checkSubarraySum (vector<int>& nums, int k) {
 
         int rem = prefixSum % k;
 
-        if (firstIndex.count(rem)) {			// count checks if the key exists
+        if (firstIndex.count (rem)) {			// count checks if the key exists
 
             if (i - firstIndex[rem] >= 2)
                 return true;
@@ -55,9 +55,7 @@ int main () {
 
 	vector<int> nums = {23, 2, 4, 6, 7};
 
-	bool res = checkSubarraySum (nums, 6);
-
-	cout << res;
+	cout << checkSubarraySum (nums, 6);
 
 	return 0;
 }

@@ -29,7 +29,7 @@ bool binarySearch (vector<int>& row, int target) {
     while (low <= high) {
         int mid = (low + high) / 2;
         
-        if (row[mid] == target) 
+        if (target == row[mid]) 
             return true;            // Element found
         else if (target > row[mid]) 
             low = mid + 1;          // Search in the right half
@@ -43,7 +43,7 @@ bool binarySearch (vector<int>& row, int target) {
 bool searchMatrix (vector<vector<int>>& matrix, int target) {
     int n = matrix.size();
 
-    // Iterate over each row and perform Binary search
+    // Perform Binary search in each Row
     for (int i = 0; i < n; i++) {
         if (binarySearch (matrix[i], target)) 
             return true;  
