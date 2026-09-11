@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-/* [Better Approach] Using Temporary Array - O(n) Time and O(n) Space -------------- */
+/* O(n) Time, O(n) Space -------------- */
 vector<int> leftRotate (vector<int>& nums, int d) {
     int n = nums.size();
     
@@ -11,13 +11,13 @@ vector<int> leftRotate (vector<int>& nums, int d) {
     
     vector<int> temp(n);
     
-    // Copy last n - d elements from d
-    for (int i = 0; i < n - d; i++) 
-        temp[i] = nums[d + i];
-    
-    // Copy first d elements to the back of temp
+    // Copy first d elements to the back
     for (int i = 0; i < d; i++) 
         temp[n - d + i] = nums[i];
+    
+    // Copy last n - d elements to the front
+    for (int i = 0; i < n - d; i++) 
+        temp[i] = nums[d + i];
     
     return temp;
 }
@@ -42,7 +42,7 @@ vector<int> rightRotate (vector<int>& nums, int d) {
 }
 
 
-/* [Expected Approach 2] Reversal Algorithm - O(n) Time and O(1) Space -------------- */
+/* O(n) Time, O(1) Space : Reversal Algorithm -------------- */
 void leftRotate (vector<int>& arr, int d) {
 	int n = arr.size();
 
@@ -61,7 +61,7 @@ void rightRotate (vector<int>& arr, int d) {
 
 	d %= n;										// Handle case when d > n
 
-	reverse (arr.begin() + n - d, arr.end());
+	reverse (arr.begin() + n - d, arr.end());		// reverse 
  
 	reverse (arr.begin(), arr.begin() + n - d);
 
@@ -83,7 +83,7 @@ int main () {
 
 /*
 
-Rotate the array elements to the left (or right) by d positions:
+Rotate the array elements to the left (or right) by k positions:
 
 Left Rotate (Counter-clockwise):
 
@@ -97,8 +97,8 @@ Example1:
 --------------------------------------------------------------------------------
 Right Rotate (Clockwise):
 
-	1. Copy the first (n - d) elements elements to the back
-	2. Copy the last d elements to the front
+	1. Copy the last d elements to the front
+	2. Copy the first (n - d) elements elements to the back
 
 Example1: 
 	Input: {1, 2, 3, 4, 5, 6}, k = 2
