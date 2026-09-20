@@ -21,8 +21,8 @@ public:
 		head->next = newNode;
 		oldNext->prev = newNode;
 
-		newNode->next = oldNext;
 		newNode->prev = head;
+		newNode->next = oldNext;
 	}
 
 	void delNode (Node* oldNode) {
@@ -45,14 +45,13 @@ public:
 			return -1;
 
 		Node* ansNode = mp[key];
-		int ans = ansNode->val;
 
 		mp.erase(key);
 		delNode(ansNode);
 
 		addNode(ansNode);
 		mp[key] = ansNode;
-		return ans;
+		return ansNode->val;
 	}
 
 	void put(int key, int val) {
