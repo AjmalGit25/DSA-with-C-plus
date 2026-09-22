@@ -1,20 +1,18 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
 using namespace std;
 
 // A single linked-list node
-class ListNode {
+class Node {
 public:
     int data;
-    ListNode* next;
+    Node* next;
     
-    ListNode (int data) : data(data), next(nullptr) {};
+    Node (int data) : data(data), next(nullptr) {};
 };
 
 class LinkedList {
 private:
-	ListNode* head;
+	Node* head;
 
 public:
 	LinkedList () : head (nullptr) {}
@@ -22,7 +20,7 @@ public:
 //	=================== Insertion ====================
 
 	void push_front (int data) {
-        ListNode* newNode = new ListNode(data);
+        Node* newNode = new Node(data);
         
         if (head == nullptr) {
             head = newNode;
@@ -34,7 +32,7 @@ public:
     }
 
 	void push_middle (int data, int pos) {
-		ListNode* newNode = new ListNode (data);
+		Node* newNode = new Node (data);
 
 		// Empty list
 		if (head == nullptr) {
@@ -51,7 +49,7 @@ public:
 		}
 
 		// Find position
-		ListNode* ptr = head;
+		Node* ptr = head;
 
 		for (int i = 1; i < pos - 1; i++) {
 			ptr = ptr->next;
@@ -69,7 +67,7 @@ public:
 	}
 
 	void push_back (int data) {
-		ListNode* newNode = new ListNode (data);
+		Node* newNode = new Node (data);
 
 		// Empty list
 		if (head == nullptr) {
@@ -78,7 +76,7 @@ public:
 		}
 
 		// Find last node
-		ListNode* ptr = head;
+		Node* ptr = head;
 
 		while (ptr->next != nullptr)
 			ptr = ptr->next;
@@ -95,7 +93,7 @@ public:
 	        return;
 	    }
 	    
-	    ListNode* ptr = head;
+	    Node* ptr = head;
 	    
 	    if (pos == 1){
 	        ptr = ptr->next;
@@ -113,7 +111,7 @@ public:
 			}
 	    }
 	    
-	    ListNode* temp = ptr->next;
+	    Node* temp = ptr->next;
 	    ptr->next = temp->next;
 	    delete temp;
 	}
@@ -124,8 +122,7 @@ public:
 			return;
 		}
 
-		// Find last node
-		ListNode* ptr = head;
+		Node* ptr = head;
 		while (ptr != nullptr) {
 			cout << ptr->data << "->";
 			ptr = ptr->next;

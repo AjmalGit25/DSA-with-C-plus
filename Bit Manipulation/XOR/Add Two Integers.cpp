@@ -1,11 +1,11 @@
 #include <iostream>
 using namespace std;
 
-int getSum (int a, int b) {
+int add (int a, int b) {
 	while (b != 0) {
-		int carry = (a & b) << 1;
+		int carry = a & b;
 		a = a ^ b;
-		b = carry;
+		b = carry << 1;
 	}
 
 	return a;
@@ -25,11 +25,10 @@ int main () {
 Add two integers without using the + operator
 
 	a ^ b 		 = adds bits without carry
-	(a & b) << 1 = calculates the carry
+	(a & b)		 = finds where a carry is generated
+	carry << 1 	 = moves the carry to the next position
 
 
 Repeat until there is no carry.
-
-
 
 */

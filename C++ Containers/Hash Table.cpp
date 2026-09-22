@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-#define SIZE 10
+#define SIZE 10									// Bucket size
 
 vector<vector<string>> hash_table (SIZE);        // Chaining
 
@@ -100,7 +100,7 @@ Hash Table is implemented using both:
 		vector<vector<string>> hash_table (SIZE); 
 	
 	2. Array + Struct (for key-value) 			// current implementation
-		
+
 		struct Node {
 		    string key;
 		    int value;

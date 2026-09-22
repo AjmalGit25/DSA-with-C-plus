@@ -88,6 +88,7 @@ int main () {
 }
 
 /*
+
 Hash Map structure:
 
 Example1: 	unordered_map<int, string> mp;
@@ -153,12 +154,21 @@ Key Value rules:
 	5. Hash code is computed for the KEY.
 	6. Key  = must be UNIQUE, Value = can be DUPLICATE.
 
-Pair:
-	pair<string, int> p;
+---------------------------------------------------------------------------------
+Pair: completely different C++ concepts.
+	-> Stores exactly only two values. No key:value concept.
+	-> There is no hashing, no bucket, and no searching.
 	
-		p.first   ? key (string)
-		p.second  ? value (int)
+		p.first   = first value
+		p.second  = second value
 
+	Examples:
+		pair<int, int> p;
+		pair<string, int> p;
+		pair<int, string> p;
+		pair<string, string> p;
+		pair<char, char> p;
+		pair<bool, bool> p;
 -------------------------------------------------------------------------------------
 
 unordered_map == Hash Map
@@ -172,14 +182,14 @@ They fall into two categories:
 1. Ordered Containers (Tree-based):
 	i) Set
 	ii) Map
-	
+
 	-> Internally use a balanced tree (Red-Black Tree)
 	-> Elements are always sorted
 
 2. Unordered Containers (Hash-based):
 	i) unordered_set
 	ii) unordered_map
-	
+
 	-> Internally use a hash table
 	-> No sorting, but faster access on average
 

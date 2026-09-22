@@ -19,7 +19,8 @@ int main () {
 /*
 
 XOR
-
+	-> Same bits		= 0
+	-> Different bits	= 1
 	-> Same numbers XOR gives 0
 	-> XOR gives 1 only when the bits are different.
 	-> XOR is Commutative & Associative
