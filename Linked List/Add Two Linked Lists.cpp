@@ -93,11 +93,11 @@ Node* reverseList (Node* head) {
 }
 
 Node* addTwoLists (Node* head1, Node* head2) {
-	Node* dummy = new Node (-1);
-	Node* curr = dummy;
-
 	head1 = reverseList (head1);
 	head2 = reverseList (head2);
+	
+	Node* dummy = new Node (-1);
+	Node* curr = dummy;
 
 	int carry = 0;
 

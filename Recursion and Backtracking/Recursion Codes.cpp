@@ -10,19 +10,30 @@ void greet (int n) {
 }
 
 
-int n_sum(int n) {
-    // base case
-    if (n == 0) return 0;
-
-    // recursive case
-    return n + n_sum(n - 1);
+// -------- Sum to N numbers ---------
+int nSum (int n) {
+    if (n == 1)
+        return 1;
+    
+    return n + nSum(n - 1);
 }
 
+// --------- Print N numbers ----------
+void print(int n) {
+    if (n == 0)
+        return;
+
+    cout << n << " ";        // before recursive call
+    print(n - 1);            // go deeper
+    cout << n << " ";        // after recursive call	(return/unwinding phase of recursion)
+}
+
+// ------------ Factorial -------------
 int fact (int n) {
-    // base case
-    if (n == 0 || n == 1) return 1;
+    if (n == 0)
+        return 1;
     
-    return n * fact (n - 1);
+    return n * fact(n - 1);
 }
 
 int fib (int n) {

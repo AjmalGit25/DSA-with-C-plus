@@ -1,38 +1,4 @@
-#include <iostream>
-using namespace std;
 
-// --------- Print N numbers ----------
-void print(int n) {
-    if (n == 0)
-        return;
-
-    cout << n << " ";        // before recursive call
-    print(n - 1);            // go deeper
-    cout << n << " ";        // after recursive call	(return/unwinding phase of recursion)
-}
-
-// ------------ Factorial -------------
-int fact (int n){
-    if (n == 0)
-        return 1;
-    
-    return n * fact(n - 1);
-}
-
-// -------- Sum to N numbers ---------
-int nSum (int n) {
-    if (n == 1)
-        return 1;
-    
-    return n + nSum(n - 1);
-}
-
-int main() {
-	
-	print(10);
-
-	return 0;
-}
 
 /*
 
@@ -50,12 +16,63 @@ int main() {
 
 2. What is Backtracking?
 
-	-> Backtracking is a problem-solving technique that usually uses recursion to explore different possibilities.
+	-> Backtracking is a problem-solving technique that uses Recursion to explore different possibilities.
 
 -----------------------------------------------------------------------------------------------------
 do something
 recursiveCall()
 undo something
 
-
 */
+
+// ======================== Recusrion ==========================
+int fact (int n) {
+    if (n == 0)
+        return 1;
+    
+    return n * fact(n - 1);
+}
+
+
+// -------------- Classic Backtracking Template -----------------------
+
+void backtrack(...) {
+
+    if (base_case) {
+        // save answer
+        return;
+    }
+
+    for (each choice) {
+
+        // choose
+        ...
+
+        // explore
+        backtrack(...);
+
+        // undo
+        ...
+    }
+}
+
+// ================ Recusrion + Backtracking ===================
+
+void generateAllSubsets (vector<int>& nums, int index, vector<int>& path, vector<vector<int>>& ans) {
+
+    if (index == nums.size()) {
+        ans.push_back(path);
+        return;
+    }
+
+    // Choose 1: include nums[index]
+    path.push_back (nums[index]);
+
+    generateAllSubsets (nums, index + 1, path, ans);
+
+    // Undo
+    path.pop_back();
+
+    // Choose 2: don't include nums[index]
+    generateAllSubsets (nums, index + 1, path, ans);
+}
