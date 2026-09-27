@@ -19,12 +19,12 @@ int nSum (int n) {
 }
 
 // --------- Print N numbers ----------
-void print(int n) {
+void print (int n) {
     if (n == 0)
         return;
 
     cout << n << " ";        // before recursive call
-    print(n - 1);            // go deeper
+    print (n - 1);           // go deeper
     cout << n << " ";        // after recursive call	(return/unwinding phase of recursion)
 }
 
@@ -36,12 +36,36 @@ int fact (int n) {
     return n * fact(n - 1);
 }
 
+// ------------ Fibonnaci -------------
 int fib (int n) {
     // base case
     if (n == 0) return 0;
     if (n == 1 || n == 2) return 1;
     
     return fib (n - 1) + fib (n - 2);
+}
+
+// ------------ Is sorted array -------------
+bool isSorted (vector<int>& nums) {
+    for (int i = 0; i < nums.size() - 1; i++) {
+        if (nums[i] > nums[i + 1])
+            return false;
+    }
+    
+    return true;
+}
+
+bool isSorted (vector<int>& nums, int i) {
+	// Base case
+	if (i == nums.size() - 1)
+		return true;
+
+	// Current pair is not sorted
+	if (nums[i] > nums[i + 1])
+		return false;
+
+	// Check the next pair
+	return isSorted (nums, i + 1);
 }
 
 string rev_str (string str) {
