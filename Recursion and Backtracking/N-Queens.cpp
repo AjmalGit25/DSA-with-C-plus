@@ -56,6 +56,14 @@ vector<vector<string>> solveNQueens (int n) {
 
 
 int main () {
+	vector<vector<string>> result = solveNQueens(4);
 
+	for (const auto& rows : result) {
+		for (const auto& c : rows) {
+			cout << c << " ";
+		}
+		cout << "\n";
+	}
+	
 	return 0;
 }
