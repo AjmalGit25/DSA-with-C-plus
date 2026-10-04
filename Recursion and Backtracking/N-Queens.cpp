@@ -32,7 +32,7 @@ bool isSafe(vector<string>& board, int row, int col, int n) {
 
 void nQueens (vector<string>& board, vector<vector<string>>& result, int row, int n) {
 	if (row == n) {
-		result.push_back({board});
+		result.push_back(board);
 		return;
 	}
 
@@ -46,8 +46,8 @@ void nQueens (vector<string>& board, vector<vector<string>>& result, int row, in
 }
 
 vector<vector<string>> solveNQueens (int n) {
-	vector<string> board(n, string(n, '.'));
 	vector<vector<string>> result;
+	vector<string> board(n, string(n, '.'));
 
 	nQueens (board, result, 0, n);
 
@@ -58,12 +58,22 @@ vector<vector<string>> solveNQueens (int n) {
 int main () {
 	vector<vector<string>> result = solveNQueens(4);
 
-	for (const auto& rows : result) {
-		for (const auto& c : rows) {
-			cout << c << " ";
+	for (const auto& boards : result) {
+		for (const auto& board : boards) {
+			for (char c : board) {
+			    cout << c << " ";
+			}
+			cout << "\n";
 		}
 		cout << "\n";
 	}
 	
 	return 0;
 }
+
+/*
+
+Time Complexity: 	O(n!)
+Space Complexity: 	O(n²)
+
+*/
