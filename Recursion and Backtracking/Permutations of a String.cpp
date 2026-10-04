@@ -47,3 +47,10 @@ int main() {
 
     return 0;
 }
+
+/*
+
+TC: O(n * n!)
+SC: O(n + n!) = O(n!)
+
+*/

@@ -55,6 +55,6 @@ int main() {
 
 /*
 
-Choose ? Explore ? Undo ? Try another choice
+Choose -> Explore -> Undo -> Try another choice
 
 */
