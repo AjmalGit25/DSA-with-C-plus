@@ -1,40 +1,38 @@
 #include <iostream>
 using namespace std;
 
-int partition (int arr[], int left, int right) {
-    int pivot = arr[right];     // choose the last element as pivot
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int partition (vector<int>& arr, int start, int end) {
+    int idx = start - 1;
+    int pivot = arr[end];
     
-    int i = left - 1;           // pointer for greater element
-    
-    for (int j = left; j < right; j++) {
+    for (int j = start; j < end; j++) {
         if (arr[j] <= pivot) {
-            i++;
-            swap (arr[i], arr[j]);
+            swap (arr[j], arr[++idx]);
         }
     }
     
-    // Place the pivot after the last smaller element
-    swap (arr[i + 1], arr[right]);
+    swap (arr[end], arr[++idx]);
     
-    return i + 1;
+    return idx;
 }
 
-void quickSort (int arr[], int left, int right) {
-    if (left < right) {
-        int pi = partition (arr, left, right);
+void quickSort (vector<int>& arr, int start, int end) {
+    if (start < end) {
+        int pivIdx = partition (arr, start, end);
 
-        quickSort (arr, left, pi - 1);
-        quickSort (arr, pi + 1, right);
+        quickSort (arr, start, pivIdx - 1);     // left half
+        quickSort (arr, pivIdx + 1, end);       // right half
     }
 }
 
 int main () {
-    int arr[] = {5, 9, 2, 7, 11};
-    // int arr[] = {14, 9, 5, 11, 8, 17, 9};
+    vector<int> arr = {5, 9, 2, 7, 11};
     
-    int left = 0, right = sizeof (arr) / sizeof (arr[0]) - 1;
-    
-    quickSort (arr, left, right);
+    quickSort (arr, 0, arr.size() - 1);
     
     for (int x : arr) cout << x << " ";
     
@@ -46,15 +44,6 @@ int main () {
 
 Quick Sort is a Divide and Conquer sorting algorithm.
 It sorts in-place.
-
-Working Principle:
-	1. Choose a Pivot element
-	2. Rearrange the array so that:
-		Elements smaller than pivot → left side
-		Elements greater than pivot → right side
-	3. Recursively apply the same process to left and right parts
-	
-	This rearranging step is called Partitioning.
 
 
 Time Complexity: 
