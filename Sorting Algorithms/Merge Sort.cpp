@@ -23,8 +23,8 @@ void mergeSort (vector<int>& arr, int left, int right) {
     if (left < right) {
         int mid = left + (right - left) / 2;
 
-        mergeSort (arr, left, mid);			// for left portion
-        mergeSort (arr, mid + 1, right);	// for right portion
+        mergeSort (arr, left, mid);			// left half
+        mergeSort (arr, mid + 1, right);	// right half
 
         merge (arr, left, mid, right);		// merge left and right sorted halves
     }
