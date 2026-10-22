@@ -1,7 +1,4 @@
 #include <iostream>
-using namespace std;
-
-#include <iostream>
 #include <vector>
 using namespace std;
 
@@ -49,7 +46,7 @@ It sorts in-place.
 Time Complexity: 
 	Best/Average case	:	O(n log n)
 	Worst case			:	O(n²)
-	
+
 Space Complexity		: 	O(n)   (Uses extra arrays during merging)
 
 */
