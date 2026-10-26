@@ -21,6 +21,38 @@ void levelOrder (Node* root) {
     }
 }
 
+
+// --- Level Order Traversal with NULL push ---
+void levelOrder (Node* root) {
+    if (!root) return;
+
+    queue<Node*> q;
+    q.push (root);
+    q.push (NULL);
+    
+
+    while (!q.empty()) {
+        Node* curr = q.front();
+        q.pop();
+        
+        if (curr == NULL) {
+            if (!q.empty()) {
+                cout << endl;
+                q.push(NULL);
+                continue;
+            }
+            else
+                break;
+        }
+
+        cout << curr->data << " ";
+
+        if (curr->left) q.push (curr->left);
+        if (curr->right) q.push (curr->right);
+    }
+}
+
+
 int main () {
     
     
