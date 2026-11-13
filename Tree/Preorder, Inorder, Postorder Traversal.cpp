@@ -95,4 +95,7 @@ Large trees are created in 3 standard ways:
 	2. Using Level Order + Queue (Most practical)
 	3. Automatically via Rules (BST, Heap, Trie, etc.)
 
+------------------------------------------------
+Time Complexity: All four standard tree traversals take O(N) time.
+
 */
